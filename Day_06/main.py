@@ -6,20 +6,17 @@ def get_input():
     return fish
 
 
+def advance(fishes, days):
+    for day in range(days):
+        newborns = fishes.pop(0)
+        fishes[6] += newborns
+        fishes.append(newborns)
+
 def main():
     fishes = get_input()
-    for day in range(80):
-        newborns = fishes.pop(0)
-        fishes[6] += newborns
-        fishes.append(newborns)
-
+    advance(fishes, 80)
     print(f"Part 1: {sum(fishes)}")
-
-    for day in range(256 - 80):
-        newborns = fishes.pop(0)
-        fishes[6] += newborns
-        fishes.append(newborns)
-
+    advance(fishes, 256-80)
     print(f"Part 2: {sum(fishes)}")
 
 
